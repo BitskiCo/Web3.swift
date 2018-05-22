@@ -281,11 +281,6 @@ public extension Web3.Eth {
 fileprivate extension Web3Response {
 
     fileprivate func sealPromise(seal: Resolver<Result>) {
-        guard let rpc = rpcResponse, status == .ok else {
-            seal.reject(status)
-            return
-        }
-
-        seal.resolve(rpc.result, rpc.error)
+        seal.resolve(result, error)
     }
 }
